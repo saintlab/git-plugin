@@ -156,7 +156,7 @@ public class GitPublisherTest extends AbstractGitTestCase {
                 Collections.<TagToPush>emptyList(),
                 Collections.singletonList(new BranchToPush("origin", "integration")),
                 Collections.<NoteToPush>emptyList(),
-                true, true, false));
+                true, false, true, false));
 
         // create initial commit and then run the build against it:
         commit("commitFileBase", johnDoe, "Initial Commit");
@@ -240,7 +240,7 @@ public class GitPublisherTest extends AbstractGitTestCase {
                 Collections.<TagToPush>emptyList(),
                 Collections.singletonList(new BranchToPush("origin", "integration")),
                 Collections.<NoteToPush>emptyList(),
-                true, true, false));
+                true, false, true, false));
 
         // create initial commit and then run the build against it:
         commit("commitFileBase", johnDoe, "Initial Commit");
@@ -328,7 +328,7 @@ public class GitPublisherTest extends AbstractGitTestCase {
                 Collections.<TagToPush>emptyList(),
                 Collections.singletonList(new BranchToPush("origin", "integration")),
                 Collections.<NoteToPush>emptyList(),
-                true, true, false));
+                true, false, true, false));
 
         // create initial commit and then run the build against it:
         commit("commitFileBase", johnDoe, "Initial Commit");
@@ -430,7 +430,7 @@ public class GitPublisherTest extends AbstractGitTestCase {
         		Collections.singletonList(new TagToPush("$TARGET_NAME", tag_name, "", false, false)),
                 Collections.singletonList(new BranchToPush("$TARGET_NAME", "$TARGET_BRANCH")),
                 Collections.singletonList(new NoteToPush("$TARGET_NAME", note_content, Constants.R_NOTES_COMMITS, false)),
-                true, false, true));
+                true, false, false, true));
 
         commit("commitFile", johnDoe, "Initial Commit");
         testRepo.git.tag(tag_name, "Comment");
