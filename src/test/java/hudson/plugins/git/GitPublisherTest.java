@@ -71,7 +71,7 @@ public class GitPublisherTest extends AbstractGitTestCase {
                 Collections.singletonList(new TagToPush("origin","foo","message",true, false)),
                 Collections.<BranchToPush>emptyList(),
                 Collections.<NoteToPush>emptyList(),
-                true, true, false) {
+                true, false, true, false) {
             @Override
             public boolean perform(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener) throws InterruptedException, IOException {
                 run.incrementAndGet();
@@ -120,7 +120,7 @@ public class GitPublisherTest extends AbstractGitTestCase {
                 Collections.<TagToPush>emptyList(),
                 Collections.singletonList(new BranchToPush("origin", "integration")),
                 Collections.<NoteToPush>emptyList(),
-                true, true, false));
+                true, false, true, false));
 
         // create initial commit and then run the build against it:
         commit("commitFileBase", johnDoe, "Initial Commit");
@@ -460,7 +460,7 @@ public class GitPublisherTest extends AbstractGitTestCase {
                 Collections.<TagToPush>emptyList(),
                 Collections.singletonList(new BranchToPush("origin", "otherbranch")),
                 Collections.<NoteToPush>emptyList(),
-                true, true, true));
+                true, false, true, true));
 
         commit("commitFile", johnDoe, "Initial Commit");
 
@@ -499,7 +499,7 @@ public class GitPublisherTest extends AbstractGitTestCase {
           Collections.<TagToPush>emptyList(),
           Collections.singletonList(new BranchToPush("origin", "integration")),
           Collections.<NoteToPush>emptyList(),
-          true, true, false));
+          true, false, true, false));
 
       // create initial commit and then run the build against it:
       commit("commitFileBase", johnDoe, "Initial Commit");
@@ -569,7 +569,7 @@ public class GitPublisherTest extends AbstractGitTestCase {
                 Collections.singletonList(new TagToPush("origin", tagNameReference, tagMessageReference, false, true)),
                 Collections.singletonList(new BranchToPush("origin", envReference)),
                 Collections.singletonList(new NoteToPush("origin", noteReference, Constants.R_NOTES_COMMITS, false)),
-                true, true, true);
+                true, false, true, true);
         assertTrue(publisher.isForcePush());
         assertTrue(publisher.isPushBranches());
         assertTrue(publisher.isPushMerge());
